@@ -5,17 +5,15 @@ on:
     branches:
       - master
       - develop
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-  build:
+  build-image:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Docker Login
-      run: docker login docker.pkg.github.com -u ajayy004 -p $GITHUB_TOKEN
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Docker Build
-      run: docker build mailslurper/. --file mailslurper/Dockerfile --tag docker.pkg.github.com/ajayy004/smtp-server/mailslurper:latest .
-    - name: Docker Publish
-      run: docker push docker.pkg.github.com/ajayy004/smtp-server/mailslurper:latest
+    - uses: actions/checkout@v3
+    - name: Build the mailslurper Docker image
+      working-directory: mailslurper
+      run: docker build . --file Dockerfile  --tag ajayy004/mailslurper:$(date +%s)
+    
