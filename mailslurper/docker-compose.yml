@@ -7,3 +7,5 @@ services:
             - "2500:2500"
             - "9000:8080"
             - "8085:8085"
+        volumes:
+            - $PWD/config.json:/opt/mailslurper/config.json
