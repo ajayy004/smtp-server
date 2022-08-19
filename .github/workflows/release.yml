@@ -31,7 +31,7 @@ jobs:
       with:
         context: "{{defaultContext}}:mailslurper"
         push: true
-        tags: ajayy004/mailslurper:${{ steps.get_version.outputs.VERSION }}
+        tags: ajayy004/mailslurper:${{ env.BRANCH }}
     - 
       name: Create Release
       id: create_release
