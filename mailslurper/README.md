@@ -94,10 +94,10 @@ services:
 	"adminCertFile": "./mailslurper-cert.pem",
     ...
 }
+```
 
 See the [MailSlurper wiki](https://github.com/mailslurper/mailslurper/wiki) for more information on configuring MailSlurper.
 
-```
 ### Using Docker Compose
 There is an assumption you have installed docker-compose!
 
