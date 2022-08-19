@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+
+    mailslurper:
+        image: ajayy004/mailslurper
+        ports:
+            - "2500:2500"
+            - "9000:8080"
+            - "8085:8085"

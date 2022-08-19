@@ -35,4 +35,12 @@ jobs:
         context: "{{defaultContext}}:mailslurper"
         push: true
         tags: ajayy004/mailslurper:latest
+    -
+      name: Update repo description
+      uses: peter-evans/dockerhub-description@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        repository: ajayy004/smtp-server
+        readme_file: smtp-server/mailslurper/README.md
     
