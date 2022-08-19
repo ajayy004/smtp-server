@@ -1,0 +1,20 @@
+name: master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Docker Login
+      run: docker login docker.pkg.github.com -u ajayy004 -p $GITHUB_TOKEN
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Docker Build
+      run: docker build mailslurper/. --file mailslurper/Dockerfile --tag docker.pkg.github.com/ajayy004/smtp-server/mailslurper:latest .
+    - name: Docker Publish
+      run: docker push docker.pkg.github.com/ajayy004/smtp-server/mailslurper:latest
