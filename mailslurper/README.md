@@ -1,17 +1,6 @@
 # mailslurper smtp-server
 > [MailSlurper](https://github.com/mailslurper/mailslurper) is a small SMTP mail server. SMTP server do not run over SSL by default
 
-## Usage
-### Building the image
-```
-docker build -t <name> .
-```
-
-### Running the image
-```
-docker run -it -p 2500:2500 -p 8080:8080 -p 8085:8085 --rm <name>
-```
-
 ### MailSlurper Configuration
 You can mount a local configuration file into the image if an alternative configuration file is needed
 #### **`config.json`**
@@ -105,3 +94,16 @@ There is an assumption you have installed docker-compose!
 docker-compose up -d
 ```
 
+### Local dev
+
+## Usage
+> TBD
+### Building the image
+```
+docker build -t <name> .
+```
+
+### Running the image
+```
+docker run -it -p 2500:2500 -p 8080:8080 -p 8085:8085 --rm <name>
+```
